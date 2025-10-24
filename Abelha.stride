@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Abelha" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="tipoAbelha" value="Greenfoot.getRandomNumber(2)" value-java="Greenfoot.getRandomNumber(2)" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="velocidade" value="2" value-java="2" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="false">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="int" type-java="int" name="tipo"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="this.tipo" dest-java="this.tipo" src="tipo" src-java="tipo" enable="false"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Bomba wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="tipoAbelha==0" condition-java="tipoAbelha == 0" enable="true">
+                    <ifStatements>
+                        <if condition="getRotation()==90" condition-java="getRotation() == 90" enable="true">
+                            <ifStatements>
+                                <call expression="turn(270)" expression-java="turn(270)" enable="true"/>
+                            </ifStatements>
+                        </if>
+                        <if condition="getX()&gt;=599" condition-java="getX() &gt;= 599" enable="true">
+                            <ifStatements>
+                                <call expression="setLocation(0,Greenfoot.getRandomNumber(599))" expression-java="setLocation(0, Greenfoot.getRandomNumber(599))" enable="true"/>
+                            </ifStatements>
+                            <else>
+                                <call expression="setLocation(getX()+velocidade,getY())" expression-java="setLocation(getX() + velocidade, getY())" enable="true"/>
+                            </else>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="tipoAbelha==1" condition-java="tipoAbelha == 1" enable="true">
+                    <ifStatements>
+                        <if condition="getRotation()==0" condition-java="getRotation() == 0" enable="true">
+                            <ifStatements>
+                                <call expression="turn(90)" expression-java="turn(90)" enable="true"/>
+                            </ifStatements>
+                        </if>
+                        <if condition="getY()&gt;=399" condition-java="getY() &gt;= 399" enable="true">
+                            <ifStatements>
+                                <call expression="setLocation(Greenfoot.getRandomNumber(399),0)" expression-java="setLocation(Greenfoot.getRandomNumber(399), 0)" enable="true"/>
+                            </ifStatements>
+                            <else>
+                                <call expression="setLocation(getX(),getY()+velocidade)" expression-java="setLocation(getX(), getY() + velocidade)" enable="true"/>
+                            </else>
+                        </if>
+                    </ifStatements>
+                </if>
+                <if condition="isTouching(Personagem1.class)" condition-java="isTouching(Personagem1.class)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().showText(&quot;-1&quot;,getX(),getY())" expression-java="getWorld().showText(&quot;-1&quot;, getX(), getY())" enable="false"/>
+                        <call expression="getWorld().addObject(new TextoTemporario(&quot;-1&quot;,Color.RED),getX(),getY()-30)" expression-java="getWorld().addObject( new TextoTemporario(&quot;-1&quot;, Color.RED), getX(), getY() - 30)" enable="true"/>
+                        <variable type="MyWorld" type-java="MyWorld" name="world" value="(MyWorld)getWorld()" value-java="(MyWorld)getWorld()" enable="true"/>
+                        <call expression="world.getScore().remover(1)" expression-java="world.getScore().remover(1)" enable="true"/>
+                        <assign dest="tipoAbelha" dest-java="tipoAbelha" src="Greenfoot.getRandomNumber(2)" src-java="Greenfoot.getRandomNumber(2)" enable="true"/>
+                        <if condition="tipoAbelha==0" condition-java="tipoAbelha == 0" enable="true">
+                            <ifStatements>
+                                <call expression="setLocation(0,Greenfoot.getRandomNumber(599))" expression-java="setLocation(0, Greenfoot.getRandomNumber(599))" enable="true"/>
+                            </ifStatements>
+                        </if>
+                        <if condition="tipoAbelha==1" condition-java="tipoAbelha == 1" enable="true">
+                            <ifStatements>
+                                <call expression="setLocation(Greenfoot.getRandomNumber(399),0)" expression-java="setLocation(Greenfoot.getRandomNumber(399), 0)" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

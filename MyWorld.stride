@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="MyWorld" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="Score" type-java="Score" name="score" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <body>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+                <assign dest="score" dest-java="score" src="new Score()" src-java=" new Score()" enable="true"/>
+                <call expression="addObject(score,55,20)" expression-java="addObject(score, 55, 20)" enable="true"/>
+                <variable type="Tempo" type-java="Tempo" name="tempo" value="new Tempo()" value-java=" new Tempo()" enable="true"/>
+                <call expression="addObject(tempo,105,40)" expression-java="addObject(tempo, 105, 40)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepara o mundo para o início do programa.
+Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(new Personagem1(),300,203)" expression-java="addObject( new Personagem1(), 300, 203)" enable="true"/>
+                <call expression="addObject(new Abelha(),0,0)" expression-java="addObject( new Abelha(), 0, 0)" enable="true"/>
+                <call expression="addObject(new Abelha(),0,200)" expression-java="addObject( new Abelha(), 0, 200)" enable="true"/>
+                <call expression="addObject(new Abelha(),0,400)" expression-java="addObject( new Abelha(), 0, 400)" enable="true"/>
+                <call expression="addObject(new Morango(),Greenfoot.getRandomNumber(599),Greenfoot.getRandomNumber(399))" expression-java="addObject( new Morango(), Greenfoot.getRandomNumber(599), Greenfoot.getRandomNumber(399))" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="Score" type-java="Score" name="getScore" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <return value="score" value-java="score" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

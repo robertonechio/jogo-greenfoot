@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Tempo" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="tempo" value="3000" value-java="3000" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="escala" value="1" value-java="1" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="atualizarTempo()" expression-java="atualizarTempo()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="atualizarTempo" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="setImage(new GreenfootImage(&quot;Tempo restante: &quot;+tempo/100+&quot;s&quot;,24,Color.BLACK,new Color(0,0,0,0)))" expression-java="setImage( new GreenfootImage(&quot;Tempo restante: &quot; + tempo / 100 + &quot;s&quot;, 24, Color.BLACK, new Color(0, 0, 0, 0)))" enable="true"/>
+                <assign dest="tempo" dest-java="tempo" src="tempo-1" src-java="tempo - 1" enable="true"/>
+                <if condition="tempo&lt;=0" condition-java="tempo &lt;= 0" enable="true">
+                    <ifStatements>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

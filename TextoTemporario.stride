@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="TextoTemporario" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">Write a description of class Ponto here.</javadoc>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <comment xml:space="preserve">Instance variables - replace the example below with your own</comment>
+        <variable access="private" type="int" type-java="int" name="tempoRestante" value="90" value-java="90" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="opacidade" value="255" value-java="255" enable="true"/>
+        <variable access="private" type="GreenfootImage" type-java="GreenfootImage" name="imagemBase" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="x" enable="false"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class Ponto</javadoc>
+            <params>
+                <params type="String" type-java="String" name="texto"/>
+                <params type="Color" type-java="Color" name="cor"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="imagemBase" dest-java="imagemBase" src="new GreenfootImage(texto,28,cor,new Color(0,0,0,0))" src-java=" new GreenfootImage(texto, 28, cor, new Color(0, 0, 0, 0))" enable="true"/>
+                <call expression="setImage(imagemBase)" expression-java="setImage(imagemBase)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="tempoRestante" dest-java="tempoRestante" src="tempoRestante-1" src-java="tempoRestante - 1" enable="true"/>
+                <comment xml:space="preserve">Faz o texto desaparecer aos poucos (fade-out)</comment>
+                <if condition="tempoRestante&lt;60" condition-java="tempoRestante &lt; 60" enable="true">
+                    <ifStatements>
+                        <comment xml:space="preserve">últimos 60 frames (~1 segundo)</comment>
+                        <assign dest="opacidade" dest-java="opacidade" src="(int)(255*(tempoRestante/60.0))" src-java="(int)(255 * (tempoRestante / 60.0))" enable="true"/>
+                        <call expression="getImage().setTransparency(Math.max(0,opacidade))" expression-java="getImage().setTransparency(Math.max(0, opacidade))" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">Quando o tempo acabar, remove o texto</comment>
+                <variable type="MyWorld" type-java="MyWorld" name="world" value="(MyWorld)getWorld()" value-java="(MyWorld)getWorld()" enable="true"/>
+                <if condition="tempoRestante&lt;=0" condition-java="tempoRestante &lt;= 0" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().removeObject(this)" expression-java="getWorld().removeObject(this)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

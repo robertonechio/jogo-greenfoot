@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Score" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="score" value="0" value-java="0" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="atualizarScore()" expression-java="atualizarScore()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionar" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="int" type-java="int" name="pontos"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="score" dest-java="score" src="score+pontos" src-java="score + pontos" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="remover" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="int" type-java="int" name="pontos"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="score" dest-java="score" src="score-pontos" src-java="score - pontos" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="atualizarScore" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="setImage(new GreenfootImage(&quot;Pontos: &quot;+score,24,Color.BLACK,new Color(0,0,0,0)))" expression-java="setImage( new GreenfootImage(&quot;Pontos: &quot; + score, 24, Color.BLACK, new Color(0, 0, 0, 0)))" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
